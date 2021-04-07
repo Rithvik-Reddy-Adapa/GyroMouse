@@ -393,8 +393,10 @@ if running:
             if(mbc<=cd):
                 if(gy>20): # Click and tilt towards right side
                     k.press(Key.media_next)
+                    k.release(Key.media_next)
                 if(gy<-20): # Click and tilt towards left side
                     k.press(Key.media_previous)
+                    k.release(Key.media_previous)
             mbc=0
         
         
@@ -451,13 +453,16 @@ if running:
                 ymove=gx//volume_sensitivity
                 if(ymove>1 and vc%2==0):
                     k.press(Key.media_volume_up)
+                    k.release(Key.media_volume_up)
                 if(ymove<-1 and vc%2==0):
                     k.press(Key.media_volume_down)
+                    k.release(Key.media_volume_down)
         elif(psb==0 and sb==1):
             if(sbc<=cd and nsbc==0): # Single Click
                 nsbc=1
             elif(sbc<=2*cd and nsbc==1): # Double Click
                 k.press(Key.media_play_pause)
+                k.release(Key.media_play_pause)
             if(sbc>=cd and nsbc==0):
                 sbc=0
                 nsbc=0
